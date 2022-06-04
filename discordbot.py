@@ -269,7 +269,7 @@ class NicoNicoDLSource(discord.PCMVolumeTransformer):
 
     @classmethod
     async def from_url(cls, url):
-        # とりあえず毎回clientを作っておく
+        # とりあえず毎回clientを作っておくぴょ
         niconico_client = NicoNico()
         video = niconico_client.video.get_video(url)
         # 必ずあとでコネクションを切る
