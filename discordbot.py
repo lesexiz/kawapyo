@@ -73,44 +73,44 @@ class Music(commands.Cog):
     async def join(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # ボイスチャンネルに接続する
         await ctx.author.voice.channel.connect()
-        await ctx.channel.send("接続しました。")
+        await ctx.channel.send("接続したぴょ。はよ指示だせぴょ。")
 
     @commands.command()
     async def leave(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続してねぇぴょ。")
             return
 
         # 切断する
         await ctx.guild.voice_client.disconnect()
-        await ctx.channel.send("切断しました。")
+        await ctx.channel.send("切断したぴょ。")
 
     @commands.command(aliases=["np"])
     async def nowplaying(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続してねぇぴょ。")
             return
 
         # 再生中ではない場合は実行しない
         if not ctx.guild.voice_client.is_playing():
-            await ctx.channel.send("再生していません。")
+            await ctx.channel.send("再生してねぇぴょよ。")
             return
 
         embed = discord.Embed(colour=0xff00ff, title=self.player.title, url=self.player.original_url)
@@ -130,7 +130,7 @@ class Music(commands.Cog):
     async def play(self, ctx, *, url):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # ボイスチャンネルにBotが未接続の場合はボイスチャンネルに接続する
@@ -168,12 +168,12 @@ class Music(commands.Cog):
     async def queue(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続してねぇぴょ。")
             return
 
         # 再生中ではない場合は実行しない
@@ -200,62 +200,62 @@ class Music(commands.Cog):
     async def skip(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続してねぇぴょ。")
             return
 
         # 再生中ではない場合は実行しない
         if not ctx.guild.voice_client.is_playing():
-            await ctx.channel.send("再生していません。")
+            await ctx.channel.send("再生してねぇぴょ。")
             return
 
         ctx.guild.voice_client.stop()
-        await ctx.channel.send("次の曲を再生します。")
+        await ctx.channel.send("次の曲を再生するぴょ。")
 
     @commands.command()
     async def shuffle(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくれぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続してねぇぴょ。")
             return
 
         # 再生中ではない場合は実行しない
         if not ctx.guild.voice_client.is_playing():
-            await ctx.channel.send("再生していません。")
+            await ctx.channel.send("再生してないぴょよ。")
             return
 
         random.shuffle(self.queue)
-        await ctx.channel.send("キューをシャッフルしました。")
+        await ctx.channel.send("キューをシャッフルしたぴょ♥。")
 
     @commands.command()
     async def stop(self, ctx):
         # コマンドを送ったユーザーがボイスチャンネルに居ない場合
         if ctx.author.voice is None:
-            await ctx.channel.send("操作する前にボイスチャンネルに接続してください。")
+            await ctx.channel.send("操作する前にボイスチャンネルに接続してくださいぴょ。")
             return
 
         # Botがボイスチャンネルに居ない場合
         if ctx.guild.voice_client is None:
-            await ctx.channel.send("Botがボイスチャンネルに接続していません。")
+            await ctx.channel.send("Botがボイスチャンネルに接続していませんぴょ。")
             return
 
         # 再生中ではない場合は実行しない
         if not ctx.guild.voice_client.is_playing():
-            await ctx.channel.send("再生していません。")
+            await ctx.channel.send("再生してないぴょ。")
             return
 
         self.queue.clear()
         ctx.guild.voice_client.stop()
-        await ctx.channel.send("再生を停止し、キューをリセットしました。")
+        await ctx.channel.send("再生を停止し、キューをリセットしたぴょ。")
 
 
 class NicoNicoDLSource(discord.PCMVolumeTransformer):
