@@ -149,7 +149,7 @@ class Music(commands.Cog):
         else:
             source = await YTDLSource.from_url(url, loop=client.loop, stream=True)
 
-        if ctx.guild.voice_client.is_playing():  # 他の曲を再生中の場合
+        if ctx.guild.voice_client.is_playing():  # 他の曲を再生中の場合は
             # self.playerに追加すると再生中の曲と衝突する
             self.queue.append(source)
             embed = discord.Embed(colour=0xff00ff, title=source.title, url=source.original_url)
